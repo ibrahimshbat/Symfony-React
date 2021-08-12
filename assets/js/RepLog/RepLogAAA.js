@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
+import RepLogList from "./RepLogList";
 export default class RepLogApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             highlightedRowId: null
         };
+        this.handleRowClick = this.handleRowClick.bind(this);
+    }
+    handleRowClick(repLogId) {
+        this.setState({highlightedRowId: repLogId});
     }
     render() {
         const { withHeart } = this.props;
@@ -35,22 +40,10 @@ export default class RepLogApp extends React.Component {
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
-                <tbody>
-                {repLogs.map((repLog) => {
-                    return (
-                        <tr
-                            key={repLog.id}
-                            className={highlightedRowId === repLog.id ? 'info' : ''}
-                            onClick = {() => console.log('OMG an onClick!') }
-                        >
-                            <td>{repLog.itemLabel}</td>
-                            <td>{repLog.reps}</td>
-                            <td>{repLog.totalWeightLifted}</td>
-                            <td>...</td>
-                        </tr>
-                    )
-                })}
-                </tbody>
+               <RepLogList
+                   highlightedRowId={highlightedRowId}
+                   onRowClick={this.handleRowClick}
+                   />
                 <tfoot>
                 <tr>
                     <td>&nbsp;</td>

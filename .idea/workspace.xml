@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d98af8-71c2-48ed-9429-c9528a0df0a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/js/RepLog/RepLogList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/RepLog/RepLogAAA.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLog/RepLogAAA.js" afterDir="false" />
     </list>
@@ -167,7 +168,7 @@
       <workItem from="1628604486129" duration="7144000" />
       <workItem from="1628671818651" duration="1558000" />
       <workItem from="1628680398461" duration="50000" />
-      <workItem from="1628680452099" duration="13994000" />
+      <workItem from="1628680452099" duration="22425000" />
     </task>
     <servers />
   </component>
