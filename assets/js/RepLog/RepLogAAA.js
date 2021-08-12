@@ -1,24 +1,21 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 export default class RepLogApp extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            highlightedRowId: null
+        };
+    }
     render() {
-
+        const { withHeart } = this.props;
+        const { highlightedRowId } = this.state
         const repLogs = [
             { id: 1, reps: 25, itemLabel: 'My Laptop', totalWeightLifted: 112.5 },
             { id: 2, reps: 10, itemLabel: 'Big Fat Cat', totalWeightLifted: 180 },
             { id: 8, reps: 4, itemLabel: 'Big Fat Cat', totalWeightLifted: 72 }
         ];
-        const repLogElements = repLogs.map((repLog) => {
-            return (
-                <tr key={repLog.id}>
-                    <td>{repLog.itemLabel}</td>
-                    <td>{repLog.reps}</td>
-                    <td>{repLog.totalWeightLifted}</td>
-                    <td>...</td>
-                </tr>
-            )
-        });
+
         let heart = '';
         if (this.props.withHeart) {
             heart = <span>❤️</span>;
@@ -39,7 +36,20 @@ export default class RepLogApp extends React.Component {
                 </tr>
                 </thead>
                 <tbody>
-                {repLogElements}
+                {repLogs.map((repLog) => {
+                    return (
+                        <tr
+                            key={repLog.id}
+                            className={highlightedRowId === repLog.id ? 'info' : ''}
+                            onClick = {() => console.log('OMG an onClick!') }
+                        >
+                            <td>{repLog.itemLabel}</td>
+                            <td>{repLog.reps}</td>
+                            <td>{repLog.totalWeightLifted}</td>
+                            <td>...</td>
+                        </tr>
+                    )
+                })}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -50,6 +60,36 @@ export default class RepLogApp extends React.Component {
                 </tr>
                 </tfoot>
             </table>
+            <form className="form-inline">
+                <div className="form-group">
+                    <label className="sr-only control-label required" htmlFor="rep_log_item">
+                        What did you lift?
+                    </label>
+                    <select id="rep_log_item"
+                            name="item"
+                            required="required"
+                            className="form-control">
+                        <option value="">What did you lift?</option>
+                        <option value="cat">Cat</option>
+                        <option value="fat_cat">Big Fat Cat</option>
+                        <option value="laptop">My Laptop</option>
+                        <option value="coffee_cup">Coffee Cup</option>
+                    </select>
+                </div>
+                {'  '}
+                <div className="form-group">
+                    <label className="sr-only control-label required" htmlFor="rep_log_reps">
+                        How many times?
+                    </label>
+                    <input type="number" id="rep_log_reps"
+                           name="reps" required="required"
+                           placeholder="How many times?"
+                           className="form-control"/>
+                </div>
+                {'  '}
+                <button type="submit" className="btn btn-primary">I Lifted it!</button>
+            </form>
+
         </div>
         );
     }
