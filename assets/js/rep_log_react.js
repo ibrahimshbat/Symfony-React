@@ -1,10 +1,11 @@
 import React from "react";
 import {render} from 'react-dom';
-import RepLogAAA from './RepLog/RepLogAAA'
+import RepLogApp from './RepLogs/RepLogAAA'
 
 const shouldShowHeart = true;
-console.log(<RepLogAAA/>);
+//console.log(<RepLogApp/>);
 render(
     <div>
-        <RepLogAAA withHeart={shouldShowHeart} />
-    </div>, document.getElementById('lift-stuff-app'));
+        <RepLogApp withHeart={shouldShowHeart}/>
+    </div>, document.getElementById('lift-stuff-app')
+);

@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d98af8-71c2-48ed-9429-c9528a0df0a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/RepLog/RepLogList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLog.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/RepLog/RepLogAAA.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLog/RepLogAAA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLog/RepLogAAA.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogAAA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLog/RepLogList.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/rep_log_react.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/rep_log_react.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/RepLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/RepLog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,12 +131,15 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1wXD2bHC48HXaG4pSmchhkGPqkh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -168,12 +179,17 @@
       <workItem from="1628604486129" duration="7144000" />
       <workItem from="1628671818651" duration="1558000" />
       <workItem from="1628680398461" duration="50000" />
-      <workItem from="1628680452099" duration="22425000" />
+      <workItem from="1628680452099" duration="29193000" />
+      <workItem from="1628784328163" duration="3493000" />
+      <workItem from="1628846639829" duration="16151000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

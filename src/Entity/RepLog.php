@@ -7,7 +7,7 @@ use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * RepLog
+ * RepLogs
  *
  * @ORM\Table(name="rep_log")
  * @ORM\Entity(repositoryClass="App\Repository\RepLogRepository")

@@ -1,31 +1,24 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
+import React from "react";
 import RepLogList from "./RepLogList";
-export default class RepLogApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            highlightedRowId: null
-        };
-        this.handleRowClick = this.handleRowClick.bind(this);
-    }
-    handleRowClick(repLogId) {
-        this.setState({highlightedRowId: repLogId});
-    }
-    render() {
-        const { withHeart } = this.props;
-        const { highlightedRowId } = this.state
-        const repLogs = [
-            { id: 1, reps: 25, itemLabel: 'My Laptop', totalWeightLifted: 112.5 },
-            { id: 2, reps: 10, itemLabel: 'Big Fat Cat', totalWeightLifted: 180 },
-            { id: 8, reps: 4, itemLabel: 'Big Fat Cat', totalWeightLifted: 72 }
-        ];
+import PropTypes from 'prop-types'
 
-        let heart = '';
-        if (this.props.withHeart) {
-            heart = <span>❤️</span>;
-        }
-        return(
+function calculateTotalWeightLifted(repLogs){
+    let total=0;
+
+    for (let repLog of repLogs){
+        total += repLog.totalWeightLifted;
+    }
+    return total;
+}
+const calculateTotalWeightFancier = repLogs => repLogs.reduce((total, log) => total + log.totalWeightLifted, 0);
+export default function RepLog(props) {
+    const { withHeart, highlightedRowId, onRowClick, repLogs} = props;
+    let heart = '';
+    if (withHeart) {
+        heart = <span>❤️</span>;
+    }
+
+    return(
         <div className="col-md-7">
             <h2>
                 Lift History {heart}
@@ -40,15 +33,16 @@ export default class RepLogApp extends React.Component {
                     <th>&nbsp;</th>
                 </tr>
                 </thead>
-               <RepLogList
-                   highlightedRowId={highlightedRowId}
-                   onRowClick={this.handleRowClick}
-                   />
+                <RepLogList
+                    highlightedRowId={highlightedRowId}
+                    onRowClick={onRowClick}
+                    repLogs = {repLogs}
+                />
                 <tfoot>
                 <tr>
                     <td>&nbsp;</td>
                     <th>Total</th>
-                    <th>TODO</th>
+                    <th>{calculateTotalWeightFancier(repLogs)}</th>
                     <td>&nbsp;</td>
                 </tr>
                 </tfoot>
@@ -84,6 +78,12 @@ export default class RepLogApp extends React.Component {
             </form>
 
         </div>
-        );
-    }
+    );
+}
+
+RepLog.prototype = {
+    withHeart: PropTypes.bool,
+    highlightedRowId: PropTypes.any,
+    OnRowClick: PropTypes.func.isRequired,
+    repLogs: PropTypes.array.isRequired
 }

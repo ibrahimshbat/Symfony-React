@@ -19,7 +19,9 @@ Encore
     .addEntry('rep_log', './assets/js/rep_log.js')
     .addEntry('login', './assets/js/login.js')
     .addEntry('rep_log_react', './assets/js/rep_log_react.js')
-    .addEntry('RepLogAAA', './assets/js/RepLog/RepLogAAA.js')
+    .addEntry('RepLogList', './assets/js/RepLogs/RepLogList.js')
+    .addEntry('RepLog', './assets/js/RepLogs/RepLog.js')
+    .addEntry('RepLogAAA', './assets/js/RepLogs/RepLogAAA.js')
     .enableBuildNotifications()
     // fixes modules that expect jQuery to be global
     .autoProvidejQuery()
@@ -38,7 +40,11 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     .configureBabel((babelConfig) => {
-
+        if (Encore.isProduction()) {
+            babelConfig.plugins.push(
+                'transform-react-remove-prop-types'
+            );
+        }
     }, {
         useBuiltIns: 'usage',
         corejs: 2,

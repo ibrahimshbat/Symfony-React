@@ -59,7 +59,7 @@ class BaseController extends Controller
     }
 
     /**
-     * Turns a RepLog into a RepLogApiModel for the API.
+     * Turns a RepLogs into a RepLogApiModel for the API.
      *
      * This could be moved into a service if it needed to be
      * re-used elsewhere.
