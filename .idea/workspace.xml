@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d98af8-71c2-48ed-9429-c9528a0df0a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLogAAA.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogAAA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +176,8 @@
       <workItem from="1628680398461" duration="50000" />
       <workItem from="1628680452099" duration="29193000" />
       <workItem from="1628784328163" duration="3493000" />
-      <workItem from="1628846639829" duration="19491000" />
+      <workItem from="1628846639829" duration="20712000" />
+      <workItem from="1628875379850" duration="1022000" />
     </task>
     <servers />
   </component>

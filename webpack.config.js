@@ -20,6 +20,7 @@ Encore
     .addEntry('login', './assets/js/login.js')
     .addEntry('rep_log_react', './assets/js/rep_log_react.js')
     .addEntry('RepLogList', './assets/js/RepLogs/RepLogList.js')
+    //.addEntry('RepLogCreator', './assets/js/RepLogs/RepLogCreator.js')
     .addEntry('RepLog', './assets/js/RepLogs/RepLog.js')
     .addEntry('RepLogAAA', './assets/js/RepLogs/RepLogAAA.js')
     .enableBuildNotifications()
