@@ -20,6 +20,13 @@ export default class RepLogApp extends React.Component {
     handleRowClick(repLogId) {
         this.setState({highlightedRowId: repLogId});
     }
+    handleNewItemSubmit(itemName, reps) {
+        event.preventDefault();
+        console.log("TODO - update state repLogs");
+        console.log(itemName, reps);
+
+    }
+
 
     render() {
         const {withHeart} = this.props;
@@ -30,6 +37,7 @@ export default class RepLogApp extends React.Component {
 
                 {...this.props}
                 {...this.state}
+                onNewItemSubmit={this.handleNewItemSubmit}
                 onRowClick={this.handleRowClick}
             />
         )
