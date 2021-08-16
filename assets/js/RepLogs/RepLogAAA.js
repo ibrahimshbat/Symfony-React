@@ -15,15 +15,28 @@ export default class RepLogApp extends React.Component {
             ]
         };
         this.handleRowClick = this.handleRowClick.bind(this);
+        this.handleNewItemSubmit = this.handleNewItemSubmit.bind(this)
     }
 
     handleRowClick(repLogId) {
         this.setState({highlightedRowId: repLogId});
     }
-    handleNewItemSubmit(itemName, reps) {
-        event.preventDefault();
+    handleNewItemSubmit(itemLabel, reps) {
+        //event.preventDefault();
+        const repLogs = this.state.repLogs;
+        const newRep = {
+            id: 'TODO-id',
+            reps: reps,
+            itemLabel: itemLabel,
+            totalWeightLifted: Math.floor(Math.random() * 50)
+        };
+        repLogs.push(newRep);
+        this.setState({repLogs: repLogs});
         console.log("TODO - update state repLogs");
-        console.log(itemName, reps);
+        //console.log(this.quatityInput);
+       // console.log(this.itemSelect);
+        console.log()
+        //console.log(itemName, reps);
 
     }
 
@@ -44,7 +57,3 @@ export default class RepLogApp extends React.Component {
     }
 }
 
-//RepLogApp.prototype = {
-  //  withHeart: PropTypes.bool,
-    //repLogs: PropTypes.array.isRequired
-//}
