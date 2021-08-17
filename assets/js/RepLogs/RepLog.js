@@ -16,7 +16,7 @@ const calculateTotalWeightFancier = repLogs => repLogs.reduce((total, log) => to
 
 
 export default function RepLog(props) {
-    const {withHeart, highlightedRowId, onRowClick, repLogs, onNewItemSubmit} = props;
+    const {withHeart, highlightedRowId, onRowClick, repLogs, onAddRepLog} = props;
 
 
         let heart = '';
@@ -53,9 +53,7 @@ export default function RepLog(props) {
                     </tr>
                     </tfoot>
                 </table>
-                <RepLogCreator onNewItemSubmit={onNewItemSubmit}/>
-
-
+                <RepLogCreator  onAddRepLog={onAddRepLog}/>
             </div>
         );
     }
@@ -63,7 +61,7 @@ export default function RepLog(props) {
     RepLog.prototype = {
         withHeart: PropTypes.bool,
         highlightedRowId: PropTypes.any,
-        handleNewItemSubmit: PropTypes.func.isRequired,
+        onAddRepLog: PropTypes.func.isRequired,
         OnRowClick: PropTypes.func.isRequired,
         repLogs: PropTypes.array.isRequired
     }
