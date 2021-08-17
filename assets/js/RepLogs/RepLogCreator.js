@@ -36,6 +36,7 @@ export default class RepLogCreator extends Component {
         // console.log(event.target.elements.namedItem('reps').value);
         if(quantityInput.value<=0){
             this.setState({quantityInputError:'Please enter a value greater than 0'});
+            return;
         }
         onAddRepLog(itemSelect.options[itemSelect.selectedIndex].text,
             quantityInput.value);
@@ -47,8 +48,9 @@ export default class RepLogCreator extends Component {
 
     render() {
 
+        const {quantityInputError} = this.state;
         return (
-            <form className="form-inline" onSubmit={this.handleFormSubmit}>
+            <form onSubmit={this.handleFormSubmit}>
                 <div className="form-group">
                     <label className="sr-only control-label required" htmlFor="rep_log_item">
                         What did you lift?
@@ -63,8 +65,8 @@ export default class RepLogCreator extends Component {
                     </select>
                 </div>
                 {'  '}
-                <div className="form-group">
-                    <label className="sr-only control-label required" htmlFor="rep_log_reps">
+                <div className={`form-group ${quantityInputError ? 'has-error' : ''}`}>
+                <label className="sr-only control-label required" htmlFor="rep_log_reps">
                         How many times?
                     </label>
                     <input type="number" id="rep_log_reps"
@@ -72,6 +74,7 @@ export default class RepLogCreator extends Component {
                            required="required"
                            placeholder="How many times?"
                            className="form-control"/>
+                    {quantityInputError && <span className="help-block">{quantityInputError}</span>}
                 </div>
 
                 <button type="submit" className="btn btn-primary">I Lifted it!</button>
