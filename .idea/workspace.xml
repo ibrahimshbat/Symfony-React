@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d98af8-71c2-48ed-9429-c9528a0df0a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreatorControlledComponents.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreatorControlledComponents.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreatorControlledComponents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLogList.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -182,7 +192,9 @@
       <workItem from="1629197913404" duration="844000" />
       <workItem from="1629203430769" duration="191000" />
       <workItem from="1629203696474" duration="4077000" />
-      <workItem from="1629210712052" duration="1357000" />
+      <workItem from="1629210712052" duration="2229000" />
+      <workItem from="1629214532145" duration="1474000" />
+      <workItem from="1629374436336" duration="2319000" />
     </task>
     <servers />
   </component>

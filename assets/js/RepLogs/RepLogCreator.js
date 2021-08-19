@@ -17,7 +17,7 @@ export default class RepLogCreator extends Component {
             {id: 'coffee_cup', text: 'Coffee Cup'},
         ];
         this.state = {
-            quantityInputError:''
+            quantityInputError: ''
         }
     }
 
@@ -34,15 +34,15 @@ export default class RepLogCreator extends Component {
         console.log(itemSelect.options[itemSelect.selectedIndex].value);
         // console.log('I love when a good form submits!');
         // console.log(event.target.elements.namedItem('reps').value);
-        if(quantityInput.value<=0){
-            this.setState({quantityInputError:'Please enter a value greater than 0'});
+        if (quantityInput.value <= 0) {
+            this.setState({quantityInputError: 'Please enter a value greater than 0'});
             return;
         }
         onAddRepLog(itemSelect.options[itemSelect.selectedIndex].text,
             quantityInput.value);
         quantityInput.value = '';
         itemSelect.selectedIndex = 0;
-        this.setState({quantityInputError:''});
+        this.setState({quantityInputError: ''});
 
     }
 
@@ -66,7 +66,7 @@ export default class RepLogCreator extends Component {
                 </div>
                 {'  '}
                 <div className={`form-group ${quantityInputError ? 'has-error' : ''}`}>
-                <label className="sr-only control-label required" htmlFor="rep_log_reps">
+                    <label className="sr-only control-label required" htmlFor="rep_log_reps">
                         How many times?
                     </label>
                     <input type="number" id="rep_log_reps"
@@ -82,3 +82,7 @@ export default class RepLogCreator extends Component {
         );
     }
 }
+
+//RepLogCreator.prototype = {
+   // onAddRepLog: PropTypes.func.isRequired
+//}
