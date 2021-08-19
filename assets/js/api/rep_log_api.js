@@ -1,11 +1,23 @@
+
+function fetchJson(url, options) {
+    return fetch(url, Object.assign({
+        credentials: 'same-origin',
+    }, options)).then(response => {
+        return response.json();
+    });
+}
 /**
  * Return a Promise object with the rep logs data
  *
  * @return {Promise<Response>>}
  */
 export function getRepLogs() {
-    return fetch('/reps')
-        .then(response => {
-            return response.json();
-        });
+    return fetchJson('/reps')
+        .then(data => data.items);
+}
+
+export function deleteRepLog(id) {
+    return fetchJson(`/reps/${id}`, {
+        method: 'DELETE'
+    });
 }

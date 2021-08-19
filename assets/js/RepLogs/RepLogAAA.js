@@ -3,30 +3,32 @@ import {render} from 'react-dom';
 import RepLog from "./RepLog";
 import PropTypes from 'prop-types'
 import {v4 as uuid} from 'uuid'
-import { getRepLogs } from '../api/rep_log_api';
+import { getRepLogs, deleteRepLog } from '../api/rep_log_api';
 export default class RepLogApp extends React.Component {
     constructor(props) {
         super(props);
-        getRepLogs().
-            then((data) => {
-                console.log(data);
-        }
-        );
         this.state = {
             highlightedRowId: null,
-            repLogs: [
-                { id: uuid(), reps: 25, itemLabel: 'My Laptop', totalWeightLifted: 112.5 },
-                { id: uuid(), reps: 10, itemLabel: 'Big Fat Cat', totalWeightLifted: 180 },
-                { id: uuid(), reps: 4, itemLabel: 'Big Fat Cat', totalWeightLifted: 72 }
-            ],
+            repLogs: [],
             numberOfHearts:{numberOfHearts:1},
 
-            OnDelelteRepLog: {OnDelelteRepLog:null}
+            OnDelelteRepLog: {OnDelelteRepLog:null},
+            isLoaded: false
         };
         this.handleRowClick = this.handleRowClick.bind(this);
         this.handleAddRepLog = this.handleAddRepLog.bind(this);
         this.handleHeartChange = this.handleHeartChange.bind(this);
         this.handleDeletingRepLog = this.handleDeletingRepLog.bind(this);
+    }
+
+    componentDidMount() {
+        getRepLogs()
+            .then((data) => {
+                this.setState({
+                    repLogs: data,
+                    isLoaded:true
+                })
+            });
     }
 
     handleRowClick(repLogId) {
@@ -58,6 +60,7 @@ export default class RepLogApp extends React.Component {
     }
 
     handleDeletingRepLog(id){
+        deleteRepLog(id);
         this.setState((prevState) => {
             return {
                 repLogs: prevState.repLogs.filter(repLog => repLog.id !== id)
@@ -83,5 +86,5 @@ export default class RepLogApp extends React.Component {
 }
 RepLogApp.propTypes = {
     numberOfHearts: PropTypes.number.isRequired,
-    onDelelteRepLog: PropTypes.func.isRequired
+    onDelelteRepLog: PropTypes.func.isRequired,
 };

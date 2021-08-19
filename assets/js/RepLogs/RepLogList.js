@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function RepLogList(props) {
 
-    const {highlightedRowId, onRowClick, repLogs, onDeleteRepLog} = props;
+    const {highlightedRowId, onRowClick, repLogs, onDeleteRepLog, isLoaded} = props;
 
     const handleDeleteClick = function(event, repLogId) {
         event.preventDefault();
@@ -14,6 +14,16 @@ export default function RepLogList(props) {
     //  { id: 2, reps: 10, itemLabel: 'Big Fat Cat', totalWeightLifted: 180 },
     //  { id: 8, reps: 4, itemLabel: 'Big Fat Cat', totalWeightLifted: 72 }
     //];
+
+    if (!isLoaded) {
+        return (
+            <tbody>
+            <tr>
+                <td colSpan="4" className="text-center">Loading...</td>
+            </tr>
+            </tbody>
+        );
+    }
     return (
         <tbody>
         {repLogs.map((repLog) => (
@@ -40,5 +50,6 @@ RepLogList.prototype = {
     highlightedRowId: PropTypes.any,
     onRowClick: PropTypes.func.isRequired,
     onDelelteRepLog: PropTypes.func.isRequired,
-    repLogs: PropTypes.array.isRequired
+    repLogs: PropTypes.array.isRequired,
+    isLoaded: PropTypes.bool.isRequired,
 }
