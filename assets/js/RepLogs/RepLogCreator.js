@@ -38,7 +38,7 @@ export default class RepLogCreator extends Component {
             this.setState({quantityInputError: 'Please enter a value greater than 0'});
             return;
         }
-        onAddRepLog(itemSelect.options[itemSelect.selectedIndex].text,
+        onAddRepLog(itemSelect.options[itemSelect.selectedIndex].value,
             quantityInput.value);
         quantityInput.value = '';
         itemSelect.selectedIndex = 0;

@@ -13,7 +13,9 @@ export default class RepLogApp extends React.Component {
             numberOfHearts:{numberOfHearts:1},
 
             OnDelelteRepLog: {OnDelelteRepLog:null},
-            isLoaded: false
+            isLoaded: false,
+            isSavingNewRepLog: false,
+            successMessage: ''
         };
         this.handleRowClick = this.handleRowClick.bind(this);
         this.handleAddRepLog = this.handleAddRepLog.bind(this);
@@ -34,22 +36,31 @@ export default class RepLogApp extends React.Component {
     handleRowClick(repLogId) {
         this.setState({highlightedRowId: repLogId});
     }
-    handleAddRepLog(itemLabel, reps) {
+    handleAddRepLog(item, reps) {
         //event.preventDefault();
         const repLogs = this.state.repLogs;
         const newRep = {
-            id: uuid(),
+           // id: uuid(),
             reps: reps,
-            itemLabel: itemLabel,
-            totalWeightLifted: Math.floor(Math.random() * 50)
+            item: item,
+            //totalWeightLifted: Math.floor(Math.random() * 50)
         };
-        createRepLog(newRep).then(data=>{
-            console.log(data);
-        });
-        this.setState(prevState => {
-            const newRepLogs = [...prevState.repLogs, newRep];
-            return {repLogs: newRepLogs};
+        this.setState({
+            isSavingNewRepLog: true,
+            successMessage:'Rep log is saved'
         })
+        createRepLog(newRep).
+            then(repLog => {
+                this.setState(prevState => {
+                    const newRepLogs = [...prevState.repLogs, repLog];
+                    return {repLogs: newRepLogs,
+                        isSavingNewRepLog: false};
+                })
+            })
+      //  this.setState(prevState => {
+           // const newRepLogs = [...prevState.repLogs, newRep];
+           // return {repLogs: newRepLogs};
+      //  })
         console.log("TODO - update state repLogs");
         //console.log(this.quatityInput);
        // console.log(this.itemSelect);

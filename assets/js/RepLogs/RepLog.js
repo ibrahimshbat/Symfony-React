@@ -16,7 +16,7 @@ const calculateTotalWeightFancier = repLogs => repLogs.reduce((total, log) => to
 
 
 export default function RepLog(props) {
-    const {withHeart, highlightedRowId, onRowClick, onDeleteRepLog, repLogs, onAddRepLog, numberOfHearts, onHeartChange, isLoaded} = props;
+    const {withHeart, highlightedRowId, onRowClick, onDeleteRepLog, repLogs, onAddRepLog, numberOfHearts, onHeartChange, isLoaded, isSavingNewRepLog, successMessage} = props;
 
 
     let heart = '';
@@ -38,6 +38,11 @@ export default function RepLog(props) {
                 }
             />
 
+            {successMessage && (
+                <div className="alert alert-success text-center">
+                    {successMessage}
+                </div>
+            )}
             <table className="table table-striped">
                 <thead>
                 <tr>
@@ -53,6 +58,7 @@ export default function RepLog(props) {
                     repLogs={repLogs}
                     onDeleteRepLog = {onDeleteRepLog}
                     isLoaded = {isLoaded}
+                    isSavingNewRepLog = {isSavingNewRepLog}
                 />
                 <tfoot>
                 <tr>
@@ -81,4 +87,6 @@ RepLog.prototype = {
     onHeartChange: PropTypes.func.isRequired,
     repLogs: PropTypes.array.isRequired,
     isLoaded: PropTypes.bool.isRequired,
+    isSavingNewRepLog: PropTypes.bool.isRequired,
+    successMessage: PropTypes.string.isRequired,
 }

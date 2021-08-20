@@ -1,4 +1,5 @@
 import React from "react";
+import 'whatwg-fetch';
 import {render} from 'react-dom';
 import RepLogApp from './RepLogs/RepLogAAA'
 
