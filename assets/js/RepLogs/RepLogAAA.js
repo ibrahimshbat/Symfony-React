@@ -17,6 +17,7 @@ export default class RepLogApp extends React.Component {
             isSavingNewRepLog: false,
             successMessage: ''
         };
+        this.successMessageTimeoutHandle = 0;
         this.handleRowClick = this.handleRowClick.bind(this);
         this.handleAddRepLog = this.handleAddRepLog.bind(this);
         this.handleHeartChange = this.handleHeartChange.bind(this);
@@ -47,15 +48,16 @@ export default class RepLogApp extends React.Component {
         };
         this.setState({
             isSavingNewRepLog: true,
-            successMessage:'Rep log is saved'
         })
         createRepLog(newRep).
             then(repLog => {
                 this.setState(prevState => {
                     const newRepLogs = [...prevState.repLogs, repLog];
                     return {repLogs: newRepLogs,
-                        isSavingNewRepLog: false};
-                })
+                        isSavingNewRepLog: false
+                    };
+                });
+                this.setSuccessMessage('Rep log is saved');
             })
       //  this.setState(prevState => {
            // const newRepLogs = [...prevState.repLogs, newRep];
@@ -71,6 +73,19 @@ export default class RepLogApp extends React.Component {
         this.setState({
             numberOfHearts: heartCount
         });
+    }
+
+    setSuccessMessage(message) {
+        this.setState({
+            successMessage: message
+        });
+        clearTimeout(this.successMessageTimeoutHandle)
+        this.successMessageTimeoutHandle = setTimeout(()=>{
+            this.setState({
+                successMessage: ''
+            });
+            this.successMessageTimeoutHandle = 0;
+        }, 3000)
     }
 
     handleDeletingRepLog(id){
