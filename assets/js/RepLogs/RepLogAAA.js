@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import RepLog from "./RepLog";
 import PropTypes from 'prop-types'
 import {v4 as uuid} from 'uuid'
-import { getRepLogs, deleteRepLog } from '../api/rep_log_api';
+import { getRepLogs, deleteRepLog, createRepLog} from '../api/rep_log_api';
 export default class RepLogApp extends React.Component {
     constructor(props) {
         super(props);
@@ -43,6 +43,9 @@ export default class RepLogApp extends React.Component {
             itemLabel: itemLabel,
             totalWeightLifted: Math.floor(Math.random() * 50)
         };
+        createRepLog(newRep).then(data=>{
+            console.log(data);
+        });
         this.setState(prevState => {
             const newRepLogs = [...prevState.repLogs, newRep];
             return {repLogs: newRepLogs};
