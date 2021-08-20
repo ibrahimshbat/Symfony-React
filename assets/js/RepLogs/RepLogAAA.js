@@ -3,19 +3,21 @@ import {render} from 'react-dom';
 import RepLog from "./RepLog";
 import PropTypes from 'prop-types'
 import {v4 as uuid} from 'uuid'
-import { getRepLogs, deleteRepLog, createRepLog} from '../api/rep_log_api';
+import {getRepLogs, deleteRepLog, createRepLog} from '../api/rep_log_api';
+
 export default class RepLogApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             highlightedRowId: null,
             repLogs: [],
-            numberOfHearts:{numberOfHearts:1},
+            numberOfHearts: {numberOfHearts: 1},
 
-            OnDelelteRepLog: {OnDelelteRepLog:null},
+            OnDelelteRepLog: {OnDelelteRepLog: null},
             isLoaded: false,
             isSavingNewRepLog: false,
-            successMessage: ''
+            successMessage: '',
+            newRepLogValidationErrorMessage: ''
         };
         this.successMessageTimeoutHandle = 0;
         this.handleRowClick = this.handleRowClick.bind(this);
@@ -29,7 +31,7 @@ export default class RepLogApp extends React.Component {
             .then((data) => {
                 this.setState({
                     repLogs: data,
-                    isLoaded:true
+                    isLoaded: true
                 })
             });
     }
@@ -37,11 +39,12 @@ export default class RepLogApp extends React.Component {
     handleRowClick(repLogId) {
         this.setState({highlightedRowId: repLogId});
     }
+
     handleAddRepLog(item, reps) {
         //event.preventDefault();
         const repLogs = this.state.repLogs;
         const newRep = {
-           // id: uuid(),
+            // id: uuid(),
             reps: reps,
             item: item,
             //totalWeightLifted: Math.floor(Math.random() * 50)
@@ -49,26 +52,42 @@ export default class RepLogApp extends React.Component {
         this.setState({
             isSavingNewRepLog: true,
         })
-        createRepLog(newRep).
-            then(repLog => {
-                this.setState(prevState => {
-                    const newRepLogs = [...prevState.repLogs, repLog];
-                    return {repLogs: newRepLogs,
-                        isSavingNewRepLog: false
-                    };
-                });
-                this.setSuccessMessage('Rep log is saved');
+        createRepLog(newRep).then(repLog => {
+            this.setState(prevState => {
+                const newRepLogs = [...prevState.repLogs, repLog];
+                return {
+                    repLogs: newRepLogs,
+                    isSavingNewRepLog: false,
+                    newRepLogValidationErrorMessage:''
+                };
+            });
+            this.setSuccessMessage('Rep log is saved');
+        })
+            .catch(error => {
+                error.response.json().then(errorsData => {
+                    const errors = errorsData.errors;
+                    const firstError = errors[Object.keys(errors)[0]];
+                    this.setState({
+                        newRepLogValidationErrorMessage: firstError
+                    });
+                })
             })
-      //  this.setState(prevState => {
-           // const newRepLogs = [...prevState.repLogs, newRep];
-           // return {repLogs: newRepLogs};
-      //  })
+            // .catch(error => {
+            //     error.response.json().then(errorsData => {
+            //         console.log(errorsData);
+            //     })
+            // })
+        //  this.setState(prevState => {
+        // const newRepLogs = [...prevState.repLogs, newRep];
+        // return {repLogs: newRepLogs};
+        //  })
         console.log("TODO - update state repLogs");
         //console.log(this.quatityInput);
-       // console.log(this.itemSelect);
+        // console.log(this.itemSelect);
         console.log()
         //console.log(itemName, reps);
     }
+
     handleHeartChange(heartCount) {
         this.setState({
             numberOfHearts: heartCount
@@ -80,7 +99,7 @@ export default class RepLogApp extends React.Component {
             successMessage: message
         });
         clearTimeout(this.successMessageTimeoutHandle)
-        this.successMessageTimeoutHandle = setTimeout(()=>{
+        this.successMessageTimeoutHandle = setTimeout(() => {
             this.setState({
                 successMessage: ''
             });
@@ -88,18 +107,35 @@ export default class RepLogApp extends React.Component {
         }, 3000)
     }
 
-    handleDeletingRepLog(id){
-        deleteRepLog(id);
+    componentWillmount() {
+        clearTimeout(this.successMessageTimeoutHandle);
+    }
+
+    handleDeletingRepLog(id) {
         this.setState((prevState) => {
             return {
-                repLogs: prevState.repLogs.filter(repLog => repLog.id !== id)
-            };
+                repLogs: prevState.repLogs.map(repLog => {
+                    if (repLog.id !== id) {
+                        return repLog;
+                    }
+                    return Object.assign({}, repLog, {isDeleting: true});
+                })
+            }
         });
+        deleteRepLog(id)
+            .then(() => {
+                this.setState((prevState) => {
+                    return {
+                        repLogs: prevState.repLogs.filter(repLog => repLog.id !== id)
+                    };
+                });
+                this.setSuccessMessage('Item was Un-lifted!');
+            });
     }
 
     render() {
-       // const {withHeart} = this.props;
-       // const {highlightedRowId, repLogs, numberOfHearts} = this.state
+        // const {withHeart} = this.props;
+        // const {highlightedRowId, repLogs, numberOfHearts} = this.state
 
         return (
             <RepLog
@@ -108,12 +144,14 @@ export default class RepLogApp extends React.Component {
                 onAddRepLog={this.handleAddRepLog}
                 onRowClick={this.handleRowClick}
                 onHeartChange={this.handleHeartChange}
-                onDeleteRepLog = {this.handleDeletingRepLog}
+                onDeleteRepLog={this.handleDeletingRepLog}
             />
         )
     }
 }
-RepLogApp.propTypes = {
+
+RepLogApp
+    .propTypes = {
     numberOfHearts: PropTypes.number.isRequired,
     onDelelteRepLog: PropTypes.func.isRequired,
 };

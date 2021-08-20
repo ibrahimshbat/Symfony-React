@@ -2,6 +2,7 @@ import React from "react";
 import RepLogList from "./RepLogList";
 import PropTypes from 'prop-types'
 import RepLogCreator from "./RepLogCreator";
+
 //import RepLogCreator from './RepLogCreatorControlledComponents';
 function calculateTotalWeightLifted(repLogs) {
     let total = 0;
@@ -16,7 +17,20 @@ const calculateTotalWeightFancier = repLogs => repLogs.reduce((total, log) => to
 
 
 export default function RepLog(props) {
-    const {withHeart, highlightedRowId, onRowClick, onDeleteRepLog, repLogs, onAddRepLog, numberOfHearts, onHeartChange, isLoaded, isSavingNewRepLog, successMessage} = props;
+    const {
+        withHeart,
+        highlightedRowId,
+        onRowClick,
+        onDeleteRepLog,
+        repLogs,
+        onAddRepLog,
+        numberOfHearts,
+        onHeartChange,
+        isLoaded,
+        isSavingNewRepLog,
+        successMessage,
+        newRepLogValidationErrorMessage,
+    } = props;
 
 
     let heart = '';
@@ -56,9 +70,9 @@ export default function RepLog(props) {
                     highlightedRowId={highlightedRowId}
                     onRowClick={onRowClick}
                     repLogs={repLogs}
-                    onDeleteRepLog = {onDeleteRepLog}
-                    isLoaded = {isLoaded}
-                    isSavingNewRepLog = {isSavingNewRepLog}
+                    onDeleteRepLog={onDeleteRepLog}
+                    isLoaded={isLoaded}
+                    isSavingNewRepLog={isSavingNewRepLog}
                 />
                 <tfoot>
                 <tr>
@@ -71,7 +85,8 @@ export default function RepLog(props) {
             </table>
             <div className="row">
                 <div className="col-md-6">
-                    <RepLogCreator onAddRepLog={onAddRepLog}/>
+                    <RepLogCreator onAddRepLog={onAddRepLog}
+                                   validationErrorMessage={newRepLogValidationErrorMessage}/>
                 </div>
             </div>
         </div>
@@ -89,4 +104,5 @@ RepLog.prototype = {
     isLoaded: PropTypes.bool.isRequired,
     isSavingNewRepLog: PropTypes.bool.isRequired,
     successMessage: PropTypes.string.isRequired,
+    newRepLogValidationErrorMessage: PropTypes.string.isRequired,
 }
