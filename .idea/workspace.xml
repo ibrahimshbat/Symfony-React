@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d98af8-71c2-48ed-9429-c9528a0df0a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/js/Components/Button.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Api/ApiRoute.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EventSubscriber/ApiCsrfValidationSubscriber.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Symfony-React.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Symfony-React.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/Components/RepLogApp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/Components/RepLogHelper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/Components/Routing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLog.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLogAAA.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogAAA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreatorControlledComponents.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/RepLogs/RepLogCreatorControlledComponents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/api/rep_log_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/api/rep_log_api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/rep_log_react.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/rep_log_react.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LiftController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LiftController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RepLogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RepLogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lift/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lift/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +150,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1wXD2bHC48HXaG4pSmchhkGPqkh" />
@@ -194,6 +221,8 @@
       <workItem from="1629454234385" duration="7756000" />
       <workItem from="1629467944511" duration="8428000" />
       <workItem from="1629716031786" duration="9118000" />
+      <workItem from="1631089965861" duration="9606000" />
+      <workItem from="1631104480476" duration="13163000" />
     </task>
     <servers />
   </component>

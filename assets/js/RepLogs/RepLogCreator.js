@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import RepLog from "./RepLog";
 import {render} from 'react-dom';
+import Button from "../Components/Button";
 
 export default class RepLogCreator extends Component {
 
@@ -10,13 +11,6 @@ export default class RepLogCreator extends Component {
         this.quantityInput = React.createRef();
         this.itemSelect = React.createRef();
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
-        this.itemOptions = [
-            {id: 'cat', text: 'Cat'},
-            {id: 'fat_cat', text: 'Big Fat Cat'},
-            {id: 'laptop', text: 'My Laptop'},
-            {id: 'coffee_cup', text: 'Coffee Cup'},
-            { id: 'invalid_item', text: 'Dark Matter' },
-        ];
         this.state = {
             quantityInputError: ''
         }
@@ -44,13 +38,12 @@ export default class RepLogCreator extends Component {
         quantityInput.value = '';
         itemSelect.selectedIndex = 0;
         this.setState({quantityInputError: ''});
-
     }
 
     render() {
 
         const {quantityInputError} = this.state;
-        const {validationErrorMessage} = this.props;
+        const {validationErrorMessage, itemOptions} = this.props;
 
         return (
             <form onSubmit={this.handleFormSubmit}> {validationErrorMessage && (
@@ -67,7 +60,7 @@ export default class RepLogCreator extends Component {
                             ref={this.itemSelect}
                             required="required"
                             className="form-control">
-                        {this.itemOptions.map(option => {
+                        {itemOptions.map(option => {
                             return <option value={option.id} key={option.id}>{option.text}</option>
                         })}
                     </select>
@@ -85,7 +78,9 @@ export default class RepLogCreator extends Component {
                     {quantityInputError && <span className="help-block">{quantityInputError}</span>}
                 </div>
 
-                <button type="submit" className="btn btn-primary">I Lifted it!</button>
+                <Button type="submit" className="btn-primary">
+                    I Lifted it <span className="fa fa-plus-circle"></span>
+                </Button>
             </form>
         );
     }

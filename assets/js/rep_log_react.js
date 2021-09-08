@@ -1,12 +1,16 @@
-import React from "react";
-import 'whatwg-fetch';
-import {render} from 'react-dom';
+import React from 'react';
+import { render } from 'react-dom';
 import RepLogApp from './RepLogs/RepLogAAA'
 
-const shouldShowHeart = true;
-//console.log(<RepLogApp/>);
+
+
+const shouldShowHeart = false;
+
 render(
-    <div>
-        <RepLogApp withHeart={shouldShowHeart}/>
-    </div>, document.getElementById('lift-stuff-app')
+    <RepLogApp
+        withHeart={shouldShowHeart}
+        {...window.REP_LOG_APP_PROPS}
+    />,
+    document.getElementById('lift-stuff-app')
 );
+

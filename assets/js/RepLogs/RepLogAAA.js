@@ -52,14 +52,16 @@ export default class RepLogApp extends React.Component {
         this.setState({
             isSavingNewRepLog: true,
         })
+        const newState = {
+            isSavingNewRepLog: false
+        };
         createRepLog(newRep).then(repLog => {
             this.setState(prevState => {
                 const newRepLogs = [...prevState.repLogs, repLog];
-                return {
+                return Object.assign({
                     repLogs: newRepLogs,
-                    isSavingNewRepLog: false,
-                    newRepLogValidationErrorMessage:''
-                };
+                    newRepLogValidationErrorMessage: '',
+                }, newState);
             });
             this.setSuccessMessage('Rep log is saved');
         })
@@ -67,9 +69,9 @@ export default class RepLogApp extends React.Component {
                 error.response.json().then(errorsData => {
                     const errors = errorsData.errors;
                     const firstError = errors[Object.keys(errors)[0]];
-                    this.setState({
+                    this.setState(Object.assign({
                         newRepLogValidationErrorMessage: firstError
-                    });
+                    }, newState));
                 })
             })
             // .catch(error => {
@@ -149,9 +151,11 @@ export default class RepLogApp extends React.Component {
         )
     }
 }
+RepLogApp.propTypes = {
+    withHeart: PropTypes.bool,
+    itemOptions: PropTypes.array,
+};
 
-RepLogApp
-    .propTypes = {
-    numberOfHearts: PropTypes.number.isRequired,
-    onDelelteRepLog: PropTypes.func.isRequired,
+RepLogApp.defaultProps = {
+    itemOptions: []
 };

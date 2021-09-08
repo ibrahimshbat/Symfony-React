@@ -30,6 +30,7 @@ export default function RepLog(props) {
         isSavingNewRepLog,
         successMessage,
         newRepLogValidationErrorMessage,
+        itemOptions,
     } = props;
 
 
@@ -39,7 +40,7 @@ export default function RepLog(props) {
     }
 
     return (
-        <div className="col-md-7">
+        <div>
             <h2>
                 Lift History {heart}
             </h2>
@@ -86,7 +87,8 @@ export default function RepLog(props) {
             <div className="row">
                 <div className="col-md-6">
                     <RepLogCreator onAddRepLog={onAddRepLog}
-                                   validationErrorMessage={newRepLogValidationErrorMessage}/>
+                                   validationErrorMessage={newRepLogValidationErrorMessage}
+                                   itemOptions={itemOptions}/>
                 </div>
             </div>
         </div>
@@ -105,4 +107,6 @@ RepLog.prototype = {
     isSavingNewRepLog: PropTypes.bool.isRequired,
     successMessage: PropTypes.string.isRequired,
     newRepLogValidationErrorMessage: PropTypes.string.isRequired,
+    itemOptions: PropTypes.array.isRequired
+
 }

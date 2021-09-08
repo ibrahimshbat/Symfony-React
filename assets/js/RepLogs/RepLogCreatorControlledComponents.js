@@ -95,7 +95,7 @@ export default class RepLogCreator extends Component {
                     <input type="number" id="rep_log_reps"
                            value={quantityValue}
                            required="required"
-                           placeholder="How many times?"
+                           placeholder="How manyff times?"
                            className="form-control"
                            onChange={this.handleQuantityInputChange}
                     />

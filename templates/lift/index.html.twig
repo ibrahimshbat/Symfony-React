@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="row">
-        <div id="lift-stuff-app"></div>
+        <div id="lift-stuff-app"  class="col-md-7"></div>
     </div>
     <br><br><br><br><br><br>
     <hr />
@@ -61,5 +61,9 @@
 {% block javascripts %}
     {{ parent() }}
 
-    <script src="{{ asset('build/rep_log.js') }}"></script>
+        <script>
+        window.REP_LOG_APP_PROPS = {{ repLogAppProps|json_encode|raw }};
+    </script>
+    <script src="{{ asset('build/rep_log_react.js') }}"></script>
 {% endblock %}
+
